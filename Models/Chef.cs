@@ -30,7 +30,6 @@ public class DateMinimumAgeAttribute : ValidationAttribute
     public DateMinimumAgeAttribute(int minimumAge)
     {
         MinimumAge = minimumAge;
-        ErrorMessage = "{0} must be someone at least {1} years of age";
     }
 
     public override bool IsValid(object value)
@@ -42,11 +41,6 @@ public class DateMinimumAgeAttribute : ValidationAttribute
         }
 
         return false;
-    }
-
-    public override string FormatErrorMessage(string name)
-    {
-        return string.Format(ErrorMessageString, name, MinimumAge);
     }
 
     public int MinimumAge { get; }
