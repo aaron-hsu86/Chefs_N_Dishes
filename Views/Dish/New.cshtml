@@ -1,0 +1,51 @@
+@{ViewData["Title"] = "Add a Dish";}
+@await Html.PartialAsync("_Navbar")
+@model Dish
+<h1 class="text-center">Add a Dish</h1>
+<hr>
+<form asp-controller="Dish" asp-action="Create" method="post">
+    <div class="d-flex justify-content-between">
+        <div class="d-flex flex-column">
+            <div class="d-flex flex-column">
+                <div class="d-flex justify-content-between gap-2">
+                    <label asp-for="Name"></label>
+                    <span asp-validation-for="Name" class="text-danger font-weight-bold"></span>
+                </div>
+                <input asp-for="Name" type="text">
+            </div>
+            <div class="d-flex flex-column">
+                <div class="d-flex justify-content-between gap-2">
+                    <label asp-for="Calories"></label>
+                    <span asp-validation-for="Calories" class="text-danger font-weight-bold"></span>
+                </div>
+                <input asp-for="Calories" type="text">
+            </div>
+        </div>
+        <div>
+            <label asp-for="ChefId"></label><br>
+            <span asp-validation-for="Tastiness" class="text-danger font-weight-bold"></span>
+            <select asp-for="ChefId">
+                <option value="" selected disabled>-- Select a Chef --</option>
+                @foreach(Chef c in ViewBag.allChefs)
+                {
+                <option value="@c.ChefId">@c.FirstName @c.LastName</option>
+                }
+            </select>
+        </div>
+        <div>
+            <label asp-for="Tastiness"></label><br>
+            <span asp-validation-for="Tastiness" class="text-danger font-weight-bold"></span>
+            <select asp-for="Tastiness">
+                <option value="" selected disabled>--Select Tastiness--</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end">
+        <button class="btn btn-outline-dark">Submit</button>
+    </div>
+</form>

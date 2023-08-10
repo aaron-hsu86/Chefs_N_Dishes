@@ -1,0 +1,33 @@
+<div class="d-flex justify-content-center gap-3">
+    @if(ViewData["Title"] == "Chefs")
+    {
+        <p>Chefs</p>
+    }else
+    {
+        <a asp-controller="Chef" asp-action="Index">Chefs</a>
+    }
+    |
+    @if(ViewData["Title"] == "Dishes")
+    {
+        <p>Dishes</p>
+    }else
+    {
+        <a asp-controller="Dish" asp-action="Index">Dishes</a>
+    }
+    |
+    @if(ViewData["Title"] == "Add a Chef")
+    {
+        <p>Add a Chef</p>
+    }else
+    {
+        <a asp-controller="Chef" asp-action="New">Add a Chef</a>
+    }
+    |
+    @if(ViewData["Title"] == "Add a Dish")
+    {
+        <p>Add a Dish</p>
+    }else
+    {
+        <a asp-controller="Dish" asp-action="New">Add a Dish</a>
+    }
+</div>
